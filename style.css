@@ -5,28 +5,25 @@
 .persona img {
     width: 100px;
 }
-.barra-vida {
-   
-}
-.vida-restante-hero {
-    background-color: green;
-    height: 50px;
-    width: 150px;
-}
-.vida-restante-enemy {
-    background-color: green;
-    height: 50px;
-    width: 500px;
-}
-.barra-vida-hero {
-    margin: 50px;
-    background-color: gray;
-    width: 100px;
-    height: 50px;
-}
-.barra-vida-enemy {
-    margin: 50px;
-    background-color: gray;
-    width: 500px;
-    height: 50px;
-}
+
+.progress {
+    margin-top: 80px;
+    margin-left: 50px;
+    width: 300px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 4px;
+  }
+  
+  .barra-vida-hero {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 4px;
+  }
+  .barra-vida-enemy {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 4px;
+  }
+  
+
