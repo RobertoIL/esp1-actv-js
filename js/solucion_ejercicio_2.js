@@ -56,6 +56,8 @@ document.addEventListener("keydown", function(event){
     case "ArrowDown":
       str = 'Down';
       break;
+    case Default:
+      break;
   }
   move(document.getElementById("enemigo"),str, document.getElementById("area-pelea"));
   console.log(str);
