@@ -41,6 +41,38 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
+document.addEventListener("keydown", function(event){
+  var str;
+  switch(event.key){
+    case "ArrowLeft":
+      str = 'Left';
+      break;
+    case "ArrowRight":
+      str = 'Right'; 
+      break;
+    case "ArrowUp":
+      str = 'Up';
+      break;
+    case "ArrowDown":
+      str = 'Down';
+      break;
+  }
+  move(document.getElementById("o2"),str, document.getElementById("caja"));
+  console.log(str);
+});
+
+function move(element, direction, parentElement,distance=10) {
+  var topOrLeft = (direction=="Left" || direction=="Right") ? "left" : "top";
+  if (direction=="Up" || direction=="Left"){ distance *= -1; }
+  var elStyle = window.getComputedStyle(element);
+  var value = elStyle.getPropertyValue(topOrLeft).replace("px", "");
+  element.style[topOrLeft] = (Number(value) + distance) + "px";
+}
+
+function isLimit(element, parentElement, direction){
+  var topLimit
+}
+
 
 //Creación de personajes
 const hero = new Character("Heroe", getRandomInt(100), 1);
@@ -84,10 +116,12 @@ function ataqueEnemy() {
 
 function bajarVida(personaje) {
   let pvr = personaje.health/(personaje.maxhealth/100)
-  if(personaje.name == "hero") {
+  if(personaje.name == "Heroe") {
     document.getElementById("hero").style.width=pvr+"%";
+    console.log('Se redujo al heroe')
   } else {
     document.getElementById("enemy").style.width=pvr+"%";
+    console.log('Se redujo al enemigo')
   }
 }
 
