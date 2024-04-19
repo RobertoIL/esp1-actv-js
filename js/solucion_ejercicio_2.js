@@ -93,3 +93,4 @@ function bajarVida(personaje) {
 
 
 
+
