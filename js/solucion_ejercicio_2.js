@@ -62,6 +62,30 @@ document.addEventListener("keydown", function(event){
   move(document.getElementById("enemigo"),str, document.getElementById("area-pelea"));
   console.log(str);
 });
+document.addEventListener("keydown", function(event){
+  var str = "";
+  switch(event.key){
+    case "a":
+      console.log(event)
+      str = 'Left';
+      break;
+    case "d":
+      str = 'Right'; 
+      break;
+    case "w":
+      str = 'Up';
+      break;
+    case "s":
+      str = 'Down';
+      break;
+    case Default:
+      break;
+  }
+  if(str != "") {
+    move(document.getElementById("heroe"),str, document.getElementById("area-pelea"));
+  }
+  console.log(str);
+});
 
 function move(element, direction, parentElement,distance=10) {
   var topOrLeft = (direction=="Left" || direction=="Right") ? "left" : "top";
