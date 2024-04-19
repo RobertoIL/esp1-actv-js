@@ -57,7 +57,7 @@ document.addEventListener("keydown", function(event){
       str = 'Down';
       break;
   }
-  move(document.getElementById("o2"),str, document.getElementById("caja"));
+  move(document.getElementById("enemigo"),str, document.getElementById("area-pelea"));
   console.log(str);
 });
 
