@@ -1,5 +1,5 @@
 .persona {
-    margin: 50px;
+  margin: 10px;
     display: flex;
 }
 .persona img {
@@ -24,6 +24,24 @@
     height: 100%;
     background-color: #4caf50;
     border-radius: 4px;
+  }
+
+  .area-pelea {
+    width: 1024px;
+    height: 720px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border: 2px solid black;
+  }
+
+  .instrucciones {
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+
+  .vida-jugadores {
+    margin-left: 100px;
+    display: flex;
   }
   
 
