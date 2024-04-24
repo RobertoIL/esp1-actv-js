@@ -1,7 +1,10 @@
+html {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .persona {
   display: flex;
 }
-
 
 .progress {
     margin-top: 80px;
