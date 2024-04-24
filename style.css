@@ -1,3 +1,7 @@
+html {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .persona {
   display: flex;
   position: initial;
