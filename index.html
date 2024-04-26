@@ -6,38 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego de peleas</title>
     <link rel="stylesheet" href="style.css">
+    <script src="./js/main.js" type="module"></script>
   </head>
 
   <body>
     <div class="instrucciones">
-      <h2>Fight!</h2>
-      <h3>Cada ataque tiene daño/ataque entre 5 - 10</h3>
+      <h1>Fight!</h1>
+      <h3>Cada ataque tiene un daño entre 5 - 10</h3>
     </div>
-
-    <script src="./js/solucion_ejercicio_2.js"></script>
     <div class="vida-jugadores">
       <div class="persona">
         <div>
-          <p>Hero</p>
-          <img src="" alt="">
+          <h4>Heroe</h4>
         </div>
         <div class="progress">
-          <div class="barra-vida-hero" id="hero" style="width: 100%;"></div>
+          <div class="barra-vida-hero" id="heroe-vida" style="width: 100%;"></div>
         </div>
     </div>
     <div class="persona">
       <div>
-        <p>Limo</p>
-        <img src="https://www.pngitem.com/pimgs/m/45-452124_drawing-stickman-happy-child-stick-figure-png-transparent.png" alt="">
+        <h4>Enemigo</h4>
       </div>
       <div class="progress">
-        <div class="barra-vida-enemy" id="enemy" style="width: 100%;"></div>
+        <div class="barra-vida-enemy" id="enemigo-vida" style="width: 100%;"></div>
       </div>
   </div>
     </div>
 
-    <div class="area-pelea">
-
+    <div class="area-pelea" id="area-pelea">
+      <img src="./images/hero_5187440.png" alt="" class="heroe" id="heroe">
+      <img src="./images/executioner_2982384.png" alt="" class="enemigo" id="enemigo">
     </div>
 
   </body>
