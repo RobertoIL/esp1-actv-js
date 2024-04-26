@@ -18,7 +18,7 @@ body {
 }
 
 .progress {
-    margin: 20px;
+    margin-top: 20px;
     width: 300px;
     height: 20px;
     background-color: #ddd;
@@ -66,7 +66,6 @@ body {
   
 
   .vida-jugadores {
-    margin-left: 100px;
     display: flex;
   }
   .vida-jugadores h4 {

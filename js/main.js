@@ -4,21 +4,25 @@ import Character from "./character.js";
 const hero = new Character("Heroe", 100, 10);
 const enemy = new Character("Enemigo", 100, 10);
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max) + 1;
-}
 
 alert("INICIO PARTIDA");
 
 // Event listener para detectar las teclas presionadas
 document.addEventListener("keydown", function(event) {
   if (event.key === "x") {
-    hero.setDamage(getRandomInt(10))
-    hero.attack(enemy);
+    if (detectarColision()) {
+      hero.setDamage(Math.floor(Math.random() * (10 - 5 + 1)) + 5);
+      hero.attack(enemy);
+      actualizarBarraVida(enemy, "enemigo-vida");
+    }
 
   } else if (event.key === "n") {
-    enemy.setDamage()
-    enemy.attack(hero);
+    if (detectarColision()) {
+      enemy.setDamage(Math.floor(Math.random() * (10 - 5 + 1)) + 5);
+      enemy.attack(hero);
+      actualizarBarraVida(hero, "heroe-vida")
+      
+    }
   }
 });
 
@@ -67,6 +71,25 @@ document.addEventListener("keydown", function(event){
   }
   console.log(str);
 });
+
+function actualizarBarraVida(personaje, barraVida) {
+  let porcentajeVida = (personaje.health / personaje.maxhealth) * 100;
+  document.getElementById(barraVida).style.width = porcentajeVida + "%";
+}
+
+function detectarColision() {
+  var heroePosition = document.getElementById("heroe").getBoundingClientRect();
+  var enemigoPosition = document.getElementById("enemigo").getBoundingClientRect();
+
+  if (heroePosition.left < enemigoPosition.right && heroePosition.right > enemigoPosition.left &&
+      heroePosition.top < enemigoPosition.bottom && heroePosition.bottom > enemigoPosition.top) {
+      return true;
+  } else return false;
+}
+
+setInterval(detectarColision, 100); // Esto comprueba la colisión cada 100 milisegundos
+
+
 
 
 

@@ -55,10 +55,6 @@ class Character {
   
       element.style[topOrLeft] = newValue + "px";
     } 
-  
-  
-  
-
       bajarVida() {
         let pvr = this.health/(this.maxhealth/100)
         if(this.name == "Heroe") {
@@ -71,12 +67,5 @@ class Character {
       }
 
     
-  }
-  function getOffset(el) {
-    const rect = el.getBoundingClientRect();
-    return {
-      left: rect.left + window.scrollX,
-      top: rect.top + window.scrollY
-    };
   }
 export default Character;
