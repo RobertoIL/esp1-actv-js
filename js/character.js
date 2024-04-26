@@ -30,24 +30,32 @@ class Character {
     }
 
 
-    move(element, direction, distance) {
+    move(element, direction, area) {
+      var distance = 50; 
       var topOrLeft = (direction == "Left" || direction == "Right") ? "left" : "top";
-      if (direction == "Up" || direction == "Left") { 
-          distance *= -1; 
+      if (direction == "Up" || direction == "Left") {
+          distance *= -1;
       }
+  
       var elStyle = window.getComputedStyle(element);
-      var value = elStyle.getPropertyValue(topOrLeft).replace("px", "");
-      console.log("Valor actual de " + topOrLeft + ": " + value);
-      var newValue;
-      if (!isNaN(distance)) { // Verificar si la distancia es un número válido
-          newValue = (Number(value) + distance) + "px";
-      } else {
-          console.error("La distancia no es un número válido.");
-          return; // Salir de la función si la distancia no es válida
+      var value = parseFloat(elStyle.getPropertyValue(topOrLeft).replace("px", ""));
+      var newValue = value + distance;
+  
+      // Obtener las dimensiones del área de pelea
+      var areaStyle = window.getComputedStyle(area);
+      var minLimit = 0; 
+      var maxLimit = (topOrLeft == "left") ? parseFloat(areaStyle.width) : parseFloat(areaStyle.height);
+  
+      // Ajustar el nuevo valor para mantenerse dentro de los límites
+      if (newValue < minLimit) {
+          newValue = minLimit;
+      } else if (newValue > maxLimit - parseFloat(elStyle[(topOrLeft == "left") ? "width" : "height"])) {
+          newValue = maxLimit - parseFloat(elStyle[(topOrLeft == "left") ? "width" : "height"]);
       }
-      console.log("Nuevo valor de " + topOrLeft + ": " + newValue);
-      element.style[topOrLeft] = newValue;
-  }
+  
+      element.style[topOrLeft] = newValue + "px";
+    } 
+  
   
   
 
@@ -63,5 +71,12 @@ class Character {
       }
 
     
+  }
+  function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+      left: rect.left + window.scrollX,
+      top: rect.top + window.scrollY
+    };
   }
 export default Character;

@@ -37,10 +37,10 @@ document.addEventListener("keydown", function(event){
     case "ArrowDown":
       str = 'Down';
       break;
-    case Default:
-      break;
+    default:
+      return;
   }
-  hero.move(document.getElementById("enemigo"),str, 10);
+  hero.move(document.getElementById("enemigo"),str, document.getElementById("area-pelea"));
   console.log(str);
 });
 document.addEventListener("keydown", function(event){
@@ -59,11 +59,11 @@ document.addEventListener("keydown", function(event){
     case "s":
       str = 'Down';
       break;
-    case Default:
-      break;
+    default:
+      return;
   }
   if(str != "") {
-    enemy.move(document.getElementById("heroe"),str, 10);
+    enemy.move(document.getElementById("heroe"),str ,document.getElementById("area-pelea"));
   }
   console.log(str);
 });

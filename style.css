@@ -8,15 +8,17 @@ html {
   color: #D0E9F2;
 }
 
+body {
+  margin: 0 20% 0 20%;
+}
+
 .persona {
   display: flex;
   position: initial;
 }
 
 .progress {
-    margin-top: 20px;
-    margin-right: 150px;
-    margin-left: 20px;
+    margin: 20px;
     width: 300px;
     height: 20px;
     background-color: #ddd;
@@ -37,12 +39,9 @@ html {
   .area-pelea {
     width: 900px;
     height: 400px;
-    margin-left: 100px;
-    margin-right: 100px;
+    position: relative;
     border: 2px solid #010A26;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    overflow: hidden;
   }
   .area-pelea img {
     width: 100px;
@@ -50,12 +49,13 @@ html {
   }
 
   .instrucciones {
-    margin-left: 100px;
-    margin-top: 20px;
+    text-align: center;
   }
-  .instrucciones 
+
+  .instrucciones
     h1 {
     font-family: 'Cinzel';
+
     }
     h3 {
       font-family: 'Inknut Antiqua';
@@ -73,12 +73,19 @@ html {
     text-align: center;
   }
 
-  .heroe{
+  .heroe, .enemigo {
     position: absolute;
+    bottom: 0;
+    transition: top 0.2s, left 0.2s;
   }
-  .enemigo{
-    position: absolute;
+  
+  .heroe {
+    left: 0;
   }
+  .enemigo {
+    right: 0;
+  }
+  
  
   
 
