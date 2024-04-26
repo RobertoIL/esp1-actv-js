@@ -21,7 +21,6 @@ class Character {
     attack(target) {
       console.log(`${this.name} deals ${this.damage} DMG to ${target.name}`);
       target.health -= this.damage;
-      
     }
   
     //Retorna la información actual del personaje

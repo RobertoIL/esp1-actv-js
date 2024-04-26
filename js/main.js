@@ -4,49 +4,21 @@ import Character from "./character.js";
 const hero = new Character("Heroe", 100, 10);
 const enemy = new Character("Enemigo", 100, 10);
 
-alert("INICIO PARTIDA")
-
-if (hero.isAlive() && !enemy.isAlive()) {
-  alert("GAME OVER\nGANA HEROE");
-}
-if (enemy.isAlive() && !hero.isAlive()) {
-  alert("GAME OVER\nGANA ENEMIGO");
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max) + 1;
 }
 
-
-// Función para el ataque del héroe
-function ataqueHero() {
-  if (hero.isAlive() && enemy.isAlive()) {
-    hero.attack(enemy);
-    hero.bajarVida();
-    console.log(hero.status());
-    console.log(enemy.status());
-    if (!enemy.isAlive()) {
-      console.log(`${enemy.name} murió!`);
-    }
-  }
-}
-
-
-// Función para el ataque del enemigo
-function ataqueEnemy() {
-  if (hero.isAlive() && enemy.isAlive()) {
-    enemy.attack(hero);
-    enemy.bajarVida();
-    console.log(hero.status());
-    console.log(enemy.status());
-    if (!hero.isAlive()) {
-      console.log(`${hero.name} murió!`);
-    }
-  }
-}
+alert("INICIO PARTIDA");
 
 // Event listener para detectar las teclas presionadas
 document.addEventListener("keydown", function(event) {
   if (event.key === "x") {
-    ataqueHero(); 
+    hero.setDamage(getRandomInt(10))
+    hero.attack(enemy);
+
   } else if (event.key === "n") {
-    ataqueEnemy(); 
+    enemy.setDamage()
+    enemy.attack(hero);
   }
 });
 
@@ -96,14 +68,6 @@ document.addEventListener("keydown", function(event){
   console.log(str);
 });
 
-// Event listener para detectar las teclas presionadas
-document.addEventListener("keydown", function(event) {
-  if (event.key === "x") {
-    ataqueHero(); 
-  } else if (event.key === "n") {
-    ataqueEnemy(); 
-  }
-});
 
 
 
