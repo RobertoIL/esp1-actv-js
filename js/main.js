@@ -10,18 +10,18 @@ alert("INICIO PARTIDA");
 // Event listener para detectar las teclas presionadas
 document.addEventListener("keydown", function(event) {
   if (event.key === "x") {
-    if (detectarColision()) {
+    if (detectarColision() && enemy.isAlive()) {
       hero.setDamage(Math.floor(Math.random() * (10 - 5 + 1)) + 5);
       hero.attack(enemy);
       actualizarBarraVida(enemy, "enemigo-vida");
     }
 
   } else if (event.key === "n") {
-    if (detectarColision()) {
+    if (detectarColision() && hero.isAlive()) {
       enemy.setDamage(Math.floor(Math.random() * (10 - 5 + 1)) + 5);
       enemy.attack(hero);
       actualizarBarraVida(hero, "heroe-vida")
-      
+
     }
   }
 });
@@ -87,7 +87,15 @@ function detectarColision() {
   } else return false;
 }
 
+function gameOver() {
+  if (!enemy.isAlive() || !hero.isAlive()) {
+    alert("GAME OVER");
+    window.location.reload();
+  }
+}
+
 setInterval(detectarColision, 100); // Esto comprueba la colisión cada 100 milisegundos
+setInterval(gameOver, 1500);
 
 
 
