@@ -1,14 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap');
+
+
 html {
-  font-family: 'Courier New', Courier, monospace;
+  background-color: #152F40;
+  color: #D0E9F2;
+}
+
+body {
+  margin: 0 20% 0 20%;
 }
 
 .persona {
   display: flex;
+  position: initial;
 }
 
 .progress {
-    margin-top: 80px;
-    margin-left: 50px;
+    margin: 20px 20px 0 20px;
     width: 300px;
     height: 20px;
     background-color: #ddd;
@@ -29,12 +39,9 @@ html {
   .area-pelea {
     width: 900px;
     height: 400px;
-    margin-left: 100px;
-    margin-right: 100px;
-    border: 2px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    border: 2px solid #010A26;
+    overflow: hidden;
   }
   .area-pelea img {
     width: 100px;
@@ -42,24 +49,42 @@ html {
   }
 
   .instrucciones {
-    margin-left: 100px;
-    margin-top: 20px;
+    text-align: center;
   }
 
+  .instrucciones
+    h1 {
+    font-family: 'Cinzel';
+
+    }
+    h3 {
+      font-family: 'Inknut Antiqua';
+    }
+    h4 {
+      font-family: 'Proza Libre';
+    }
+  
+
   .vida-jugadores {
-    margin-left: 100px;
     display: flex;
   }
   .vida-jugadores h4 {
     text-align: center;
   }
 
-  .heroe{
+  .heroe, .enemigo {
     position: absolute;
+    bottom: 0;
+    transition: top 0.2s, left 0.2s;
   }
-  .enemigo{
-    position: absolute;
+  
+  .heroe {
+    left: 0;
   }
+  .enemigo {
+    right: 0;
+  }
+  
  
   
 
